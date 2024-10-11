@@ -7,11 +7,17 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        great_vibes: ["Great Vibes", "sans-serif"],
+        comfortaa: ["Comfortaa", "sans-serif"],
+        dancing: ["Dancing Script", "sans-serif"],
+        poppins: ["Poppins", "sans-serif"],
+      },
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        pink: "#c89d9c",
       },
     },
   },
+
   plugins: [],
 };
