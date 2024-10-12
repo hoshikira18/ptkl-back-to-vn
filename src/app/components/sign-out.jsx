@@ -8,7 +8,7 @@ const SignOutButton = () => {
         "use server";
         await signOut();
       }}
-      className="p-3 rounded-md bg-white/40 fixed bottom-5 right-10"
+      className="z-20 p-3 rounded-md bg-white/40 fixed bottom-5 right-10"
     >
       <button
         type="submit"
