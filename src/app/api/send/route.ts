@@ -10,7 +10,7 @@ export async function POST(req: NextRequest) {
     const { data, error } = await resend.emails.send({
       from: "Sunflower <onboarding@resend.dev>",
       to: ["ptkl2053@gmail.com"],
-      subject: "Hello world",
+      subject: "Đã có tin nhắn mới!",
       react: EmailTemplate({ data: value }),
     });
 
