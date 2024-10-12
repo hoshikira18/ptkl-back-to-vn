@@ -2,8 +2,10 @@
 import React, { useEffect, useState } from "react";
 import { postMessage } from "../actions";
 import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 
 const InputPost = ({ session }) => {
+  const router = useRouter();
   const [message, setMessage] = useState("");
   const [type, setType] = useState("public");
 
@@ -11,7 +13,8 @@ const InputPost = ({ session }) => {
     setMessage(message);
   }, [message]);
 
-  const handleSendMessage = async (e) => {
+  const handleSendMessage = (e) => {
+    e.preventDefault();
     toast.promise(
       postMessage({
         name: session.user.name,
@@ -25,6 +28,9 @@ const InputPost = ({ session }) => {
         error: "Đã có lỗi xảy ra!",
       }
     );
+    router.refresh();
+    setMessage("");
+    setType("public");
   };
 
   return (
@@ -45,6 +51,7 @@ const InputPost = ({ session }) => {
             required
             name="message"
             id="message"
+            value={message}
             onChange={(e) => {
               setMessage(e.target.value);
             }}
@@ -56,6 +63,7 @@ const InputPost = ({ session }) => {
             <select
               name="send-options"
               id="send-options"
+              value={type}
               className="border-2 rounded-md p-1"
               onChange={(e) => {
                 setType(e.target.value);
