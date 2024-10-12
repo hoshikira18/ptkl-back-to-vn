@@ -1,6 +1,6 @@
 import React from "react";
 import "@/app/ptkl.css";
-import { BackToTop, InputPost, ListMessages, SignInButton } from "./index";
+import { SignOutButton, InputPost, ListMessages, SignInButton } from "./index";
 
 import CountDown from "./countdown";
 import { auth } from "@/auth";
@@ -9,6 +9,7 @@ const StarSky = async () => {
   const session = await auth();
   return (
     <section className="py-10 bg-gradient-to-tr from-blue-500/40 to-green-500/40 overflow-y-scroll overflow-x-hidden">
+      <SignOutButton />
       <span id="star"></span>
       <span id="star"></span>
       <span id="star"></span>
