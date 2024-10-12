@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { postMessage } from "../actions";
+import { toast } from "react-toastify";
 
 const InputPost = ({ session }) => {
   const [message, setMessage] = useState("");
