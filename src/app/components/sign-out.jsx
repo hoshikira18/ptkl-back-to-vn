@@ -15,7 +15,6 @@ const SignOutButton = () => {
         className="text-blue-600 font-semibold flex items-center justify-center space-x-3"
       >
         <LogOut />
-        <span>Sign Out</span>
       </button>
     </form>
   );

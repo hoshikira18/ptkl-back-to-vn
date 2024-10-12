@@ -35,7 +35,7 @@ const StarSky = async () => {
           )}
         </div>
       </div>
-      <div className="text-center">
+      <div className="text-center mt-10">
         @Copyright |{" "}
         <a
           className="text-blue-700 font-bold underline"

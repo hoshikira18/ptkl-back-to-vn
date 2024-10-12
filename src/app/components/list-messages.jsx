@@ -8,7 +8,7 @@ const ListMessages = async ({ session }) => {
     return;
   }
   return (
-    <div className="sticky top-10 bg-white/60 p-5 border shadow rounded-3xl space-y-10 ">
+    <div className="sticky top-10 bg-white/60 p-5 border shadow rounded-3xl space-y-10 font-dancing">
       {messages.map((m, i) => {
         return <Message key={m.message_id} data={m} session={session} />;
       })}
