@@ -34,7 +34,7 @@ const InputPost = ({ session }) => {
   };
 
   return (
-    <div className="bg-white p-5 rounded-3xl space-y-3 sticky -top-7 border shadow z-20">
+    <div className="bg-white p-5 rounded-3xl space-y-1 md:space-y-3 sticky -top-7 border shadow z-20">
       <div className="text-2xl font-semibold">
         Xin chào, <span className="text-green-500">{session.user.name}</span>
       </div>
