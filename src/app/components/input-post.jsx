@@ -12,7 +12,7 @@ const InputPost = ({ session }) => {
 
   const handleSendMessage = async (e) => {
     toast.promise(
-      await postMessage({
+      postMessage({
         name: session.user.name,
         image: session.user.image,
         message: message,
