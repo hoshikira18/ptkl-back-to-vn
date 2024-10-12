@@ -58,8 +58,8 @@ const InputPost = ({ session }) => {
             placeholder="Hãy viết điều gì đấy cho tôi nhé!"
             className="outline-none border-2 rounded-2xl w-full p-3"
           ></textarea>
-          <div className="flex items-center space-x-2">
-            <span>Bạn muốn: </span>
+          <div className="flex flex-col md:flex-row items-start md:items-center md:space-x-2">
+            <p>Bạn muốn: </p>
             <select
               name="send-options"
               id="send-options"
