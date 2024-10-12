@@ -31,19 +31,24 @@ const InputPost = ({ session }) => {
     router.refresh();
     setMessage("");
     setType("public");
+    sendEmail({
+      name: session.user.name,
+      image: session.user.image,
+    });
+  };
+
+  const sendEmail = async (value) => {
+    const res = await fetch("/api/send", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(value),
+    });
   };
 
   return (
     <div className="bg-white p-5 rounded-3xl space-y-1 md:space-y-3 sticky -top-7 border shadow z-20">
-      <button
-        onClick={() => {
-          fetch("/api/send").then((res) => {
-            console.log(res);
-          });
-        }}
-      >
-        Send
-      </button>
       <div className="text-2xl font-semibold">
         Xin chào, <span className="text-green-500">{session.user.name}</span>
       </div>

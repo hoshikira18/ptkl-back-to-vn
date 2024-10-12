@@ -1,15 +1,18 @@
 import { EmailTemplate } from "@/app/components";
+import { NextApiRequest } from "next";
 import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-export async function POST() {
+export async function POST(req: NextApiRequest) {
   try {
+    const value = await streamToString(req.body);
+    console.log(value);
     const { data, error } = await resend.emails.send({
-      from: "Acme <onboarding@resend.dev>",
-      to: ["khuyen.dev183@gmail.com"],
+      from: "Sunflower <onboarding@resend.dev>",
+      to: ["ptkl2053@gmail.com"],
       subject: "Hello world",
-      react: EmailTemplate({ firstName: "Khuyến" }),
+      react: EmailTemplate({ data: value }),
     });
 
     if (error) {
@@ -20,4 +23,12 @@ export async function POST() {
   } catch (error) {
     return Response.json({ error }, { status: 500 });
   }
+}
+
+async function streamToString(stream: any) {
+  const chunks = [];
+  for await (const chunk of stream) {
+    chunks.push(chunk);
+  }
+  return Buffer.concat(chunks).toString("utf8");
 }
