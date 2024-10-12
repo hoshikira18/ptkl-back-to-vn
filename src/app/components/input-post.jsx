@@ -11,12 +11,19 @@ const InputPost = ({ session }) => {
   }, [message]);
 
   const handleSendMessage = async (e) => {
-    await postMessage({
-      name: session.user.name,
-      image: session.user.image,
-      message: message,
-      message_type: type,
-    });
+    toast.promise(
+      await postMessage({
+        name: session.user.name,
+        image: session.user.image,
+        message: message,
+        message_type: type,
+      }),
+      {
+        pending: "Đang gửi...",
+        success: "Đã gửi thành công!",
+        error: "Đã có lỗi xảy ra!",
+      }
+    );
   };
 
   return (
