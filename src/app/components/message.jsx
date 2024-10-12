@@ -1,10 +1,21 @@
 import React from "react";
 
-const Message = ({ data }) => {
+const Message = ({ data, session }) => {
   const date = new Date(data.created_at);
   const d = date.getDate();
   const m = date.getMonth() + 1;
   const y = date.getFullYear();
+
+  console.log(session);
+
+  if (data.message_type === "private") {
+    if (
+      session.user.email !== "ptkl2053@gmail.com" ||
+      session.user.email !== "linhptkha170019@fpt.edu.vn"
+    ) {
+      return;
+    }
+  }
 
   return (
     <div className=" grid gap-2 grid-cols-12">

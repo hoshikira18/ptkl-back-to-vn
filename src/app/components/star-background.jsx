@@ -29,7 +29,7 @@ const StarSky = async () => {
           ) : (
             <div className="p-1 md:p-5 space-y-5">
               <InputPost session={session} />
-              <ListMessages />
+              <ListMessages session={session} />
             </div>
           )}
         </div>

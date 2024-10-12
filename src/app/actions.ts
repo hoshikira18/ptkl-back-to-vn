@@ -9,8 +9,9 @@ export async function getMessages() {
 
 export async function postMessage(payload) {
   const sql = neon(process.env.DATABASE_URL);
-  const data = await sql`INSERT INTO message (name, image, message)
-        VALUES (${payload.name}, ${payload.image}, ${payload.message});
+  const data =
+    await sql`INSERT INTO message (name, image, message, message_type)
+        VALUES (${payload.name}, ${payload.image}, ${payload.message}, ${payload.message_type});
 `;
   return data;
 }

@@ -4,16 +4,18 @@ import { postMessage } from "../actions";
 
 const InputPost = ({ session }) => {
   const [message, setMessage] = useState("");
+  const [type, setType] = useState("public");
 
   useEffect(() => {
     setMessage(message);
   }, [message]);
 
-  const handleSendMessage = async () => {
+  const handleSendMessage = async (e) => {
     await postMessage({
       name: session.user.name,
       image: session.user.image,
       message: message,
+      message_type: type,
     });
   };
 
@@ -30,7 +32,7 @@ const InputPost = ({ session }) => {
             className="w-full object-cover"
           />
         </div>
-        <div className="col-span-10 md:col-span-11 text-lg">
+        <div className="col-span-10 md:col-span-11 text-lg space-y-2">
           <textarea
             required
             name="message"
@@ -41,8 +43,23 @@ const InputPost = ({ session }) => {
             placeholder="Hãy viết điều gì đấy cho tôi nhé!"
             className="outline-none border-2 rounded-2xl w-full p-3"
           ></textarea>
+          <div className="flex items-center space-x-2">
+            <span>Bạn muốn: </span>
+            <select
+              name="send-options"
+              id="send-options"
+              className="border-2 rounded-md p-1"
+              onChange={(e) => {
+                setType(e.target.value);
+              }}
+            >
+              <option value="public">Tất cả mọi người đều xem được</option>
+              <option value="private">Chỉ mình PTKL xem được</option>
+            </select>
+          </div>
           <button
             onClick={handleSendMessage}
+            type="submit"
             className="px-3 py-1 md:py-2 bg-green-600 text-white rounded-md"
           >
             Gửi ở đây nè
