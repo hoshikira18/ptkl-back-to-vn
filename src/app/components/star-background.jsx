@@ -9,7 +9,7 @@ const StarSky = async () => {
   const session = await auth();
   return (
     <section className="py-10 bg-gradient-to-tr from-blue-500/40 to-green-500/40 overflow-y-scroll overflow-x-hidden">
-      <SignOutButton />
+      {session && <SignOutButton />}
       <span id="star"></span>
       <span id="star"></span>
       <span id="star"></span>
