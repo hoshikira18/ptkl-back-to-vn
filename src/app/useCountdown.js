@@ -5,6 +5,12 @@ export const useCountdown = (targetDate) => {
   const [countDown, setCountDown] = useState(
     countdownDate - new Date().getTime()
   );
+  console.log(countDown)
+  useEffect(() => {
+    if (true) {
+      document.location.href = 'https://firework-woad.vercel.app'
+    }
+  }, [countDown])
 
   useEffect(() => {
     const interval = setInterval(() => {

@@ -1,6 +1,6 @@
 "use client";
 import { Badge } from "lucide-react";
-import React from "react";
+import React, { useEffect } from "react";
 import { useCountdown } from "../useCountdown";
 import InputPost from "./input-post";
 
